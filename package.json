@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "js-dev-env",
+  "version": "1.0.0",
+  "description": "Default ECMAScript 2018 Development Environment",
+  "author": "Peter Takes",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
