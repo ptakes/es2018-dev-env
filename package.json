@@ -5,8 +5,8 @@
   "description": "Default ECMAScript 2018 Development Environment.",
   "author": "Peter Takes",
   "scripts": {
-    "build": "webpack --config build/webpack.prod.babel.js",
-    "start": "nodemon --watch build --ext js --exec \"webpack-dev-server --config build/webpack.dev.babel.js\""
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "start": "cross-env NODE_ENV=development nodemon --watch build --ext js --exec \"webpack-dev-server --mode development\""
   },
   "dependencies": {},
   "devDependencies": {
@@ -17,6 +17,7 @@
     "@babel/register": "^7.0.0",
     "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^1.0.1",
+    "cross-env": "^5.2.0",
     "eslint": "^5.12.1",
     "eslint-plugin-import": "^2.15.0",
     "html-webpack-plugin": "^3.2.0",

@@ -1,7 +1,7 @@
+import { EnvironmentPlugin, WatchIgnorePlugin } from 'webpack';
 import { appDir, appName, buildDir, rootDir } from './config';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { WatchIgnorePlugin } from 'webpack';
 import merge from 'webpack-merge';
 import path from 'path';
 
@@ -17,10 +17,13 @@ export function clean({ paths, exclude } = {}) {
   };
 }
 
-export function common({ title } = {}) {
+export function common({ mode, devtool, title } = {}) {
   return merge([
     {
+      devtool: devtool || (mode === 'production' ? 'source-map' : 'inline-source-map'),
+      mode: mode || 'development',
       plugins: [
+        new EnvironmentPlugin(['NODE_ENV']),
         new HtmlWebpackPlugin({
           title: title || appName
         })
