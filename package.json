@@ -5,11 +5,22 @@
   "description": "Default ECMAScript 2018 Development Environment",
   "author": "Peter Takes",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config build/webpack.production.babel.js",
+    "test": "node dist/main.js"
   },
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/register": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^1.0.1",
     "eslint": "^5.12.1",
-    "eslint-plugin-import": "^2.15.0"
+    "eslint-plugin-import": "^2.15.0",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-merge": "^4.2.1"
   }
 }

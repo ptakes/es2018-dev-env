@@ -1,1 +1,3 @@
-console.log('Hello ECMAScript 2018!'); // eslint-disable-line no-console
+import { appName } from '../build/config';
+
+console.log(`Hello '${appName}'!`); // eslint-disable-line no-console
