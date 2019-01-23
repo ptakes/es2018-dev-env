@@ -1,3 +1,4 @@
 import { appName } from '../build/config';
+import component from './component';
 
-console.log(`Hello '${appName}'!`); // eslint-disable-line no-console
+document.body.appendChild(component(`Hello '${appName}'!`));

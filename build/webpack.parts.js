@@ -1,5 +1,9 @@
-import { appDir, buildDir, rootDir } from './config';
+import { appDir, appName, buildDir, rootDir } from './config';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { WatchIgnorePlugin } from 'webpack';
+import merge from 'webpack-merge';
+import path from 'path';
 
 export function clean({ paths, exclude } = {}) {
   return {
@@ -10,6 +14,37 @@ export function clean({ paths, exclude } = {}) {
         verbose: false
       })
     ]
+  };
+}
+
+export function common({ title } = {}) {
+  return merge([
+    {
+      plugins: [
+        new HtmlWebpackPlugin({
+          title: title || appName
+        })
+      ],
+      target: 'web'
+    },
+    loadJavaScript()
+  ]);
+}
+
+export function devServer({ host, port } = {}) {
+  return {
+    devServer: {
+      host: host || 'localhost',
+      open: true,
+      overlay: true,
+      port: port || 3000,
+      stats: 'errors-only',
+      watchOptions: {
+        aggregateTimeout: 300,
+        poll: 1000
+      }
+    },
+    plugins: [new WatchIgnorePlugin([buildDir, path.join(rootDir, 'build'), path.join(rootDir, 'node_modules')])]
   };
 }
 
