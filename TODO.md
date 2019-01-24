@@ -2,13 +2,13 @@
 
 ## TODO: this starter kit
 
-- SASS, Bootstrap and HMR
 - Images
 - Fonts and Font Awesome
 - Data: XML, CSV and JSON
 - Optimize HTML, CSS and Images
 - HTTPS for dev server
 - Build server for dist folder
+- HMR
 
 ## TODO: integration with Accolade
 

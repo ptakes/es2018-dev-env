@@ -1,5 +1,6 @@
 import { appName, debugMode } from '../build/config';
-import component from './component';
+import $ from 'jquery';
+import textPanel from './components/text-panel';
 
 console.log(`debugMode: ${debugMode}`); // eslint-disable-line no-console
-document.body.appendChild(component(`Hello '${appName}'!`));
+$('#main').append(textPanel(`Hello '${appName}'!`));
