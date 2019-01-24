@@ -1,7 +1,7 @@
 import path from 'path';
 
-export const appDir = path.join(__dirname, '../src');
-export const appName = 'ES2018 Dev Env';
-export const buildDir = path.join(__dirname, '../dist');
-export const debugMode = process.env.NODE_ENV !== 'production';
-export const rootDir = path.join(__dirname, '..');
+export const APP_DIR = path.join(__dirname, '../src');
+export const APP_NAME = 'ES2018 Dev Env';
+export const BUILD_DIR = path.join(__dirname, '../dist');
+export const DEBUG = process.env.NODE_ENV !== 'production';
+export const PROJECT_DIR = path.join(__dirname, '..');

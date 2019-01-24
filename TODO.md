@@ -8,11 +8,11 @@
 - Optimize HTML, CSS and Images
 - HTTPS for dev server
 - Build server for dist folder
-- HMR
 
 ## TODO: integration with Accolade
 
 - Accolade Web Api proxy
+- Bootstrap theme for Accolade
 - Webpack plugin for uploading Accolade scripts (HMR possible?)
 - Webpack plugin to generate Accolade plugin (upload to Accolade?, create layout?, NuGet packages for Accolade DLLs?)
 

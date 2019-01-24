@@ -6,7 +6,7 @@
   "author": "Peter Takes",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --mode production",
-    "start": "cross-env NODE_ENV=development nodemon --watch build --ext js --exec \"webpack-dev-server --mode development\""
+    "start": "cross-env NODE_ENV=development nodemon --watch webpack.*.js --watch build --ext js --exec \"webpack-dev-server --mode development\""
   },
   "dependencies": {
     "bootstrap": "^4.2.1",
