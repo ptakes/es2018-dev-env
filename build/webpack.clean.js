@@ -1,4 +1,4 @@
-import { BUILD_DIR, PROJECT_DIR } from './config';
+import { BUILD_DIR, PROJECT_DIR } from '../project.config';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 
 export default () => ({

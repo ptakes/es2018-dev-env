@@ -1,4 +1,4 @@
-import { DEBUG } from '../../build/config';
+import { DEBUG } from '../../project.config';
 import Enum from './enum';
 
 /**

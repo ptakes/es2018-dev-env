@@ -1,4 +1,4 @@
-import { BUILD_DIR, PROJECT_DIR } from './config';
+import { BUILD_DIR, PROJECT_DIR } from '../project.config';
 import { WatchIgnorePlugin } from 'webpack';
 import path from 'path';
 

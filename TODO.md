@@ -2,12 +2,15 @@
 
 ## TODO: this starter kit
 
-- Images
-- Fonts and Font Awesome
-- Data: XML, CSV and JSON
+- Images: PNG, JPG, GIF, SVG
+- Fonts and Font Awesome: WOFF, WOFF2, EOT, TTF, OTF
+- Data: XML, CSV, TSV, JSON
 - Optimize HTML, CSS and Images
 - HTTPS for dev server
 - Build server for dist folder
+- Test framework (unit and e2e, /w HTTP mocking)
+- Share work-in-progress
+- Enable Webpack HMR
 
 ## TODO: integration with Accolade
 

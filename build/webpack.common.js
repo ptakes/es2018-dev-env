@@ -1,4 +1,4 @@
-import { APP_DIR, APP_NAME, BUILD_DIR } from './config';
+import { APP_DIR, APP_NAME, BUILD_DIR } from '../project.config';
 import { EnvironmentPlugin } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';

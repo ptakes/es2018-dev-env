@@ -1,4 +1,4 @@
-import { APP_DIR } from './config';
+import { APP_DIR } from '../project.config';
 import AutoPrefixer from 'autoprefixer';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import PureCssPlugin from 'purgecss-webpack-plugin';

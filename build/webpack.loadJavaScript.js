@@ -1,4 +1,4 @@
-import { APP_DIR, DEBUG } from './config';
+import { APP_DIR, DEBUG } from '../project.config';
 
 export default () => ({
   module: {

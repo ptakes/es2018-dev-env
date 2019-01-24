@@ -1,12 +1,12 @@
 {
   "private": true,
-  "name": "js-dev-env",
+  "name": "es2018-dev-env",
   "version": "1.0.0",
   "description": "Default ECMAScript 2018 Development Environment.",
   "author": "Peter Takes",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --mode production",
-    "start": "cross-env NODE_ENV=development nodemon --watch webpack.*.js --watch build --ext js --exec \"webpack-dev-server --mode development\""
+    "start": "cross-env NODE_ENV=development nodemon --watch ./*.js* --watch build --ext js --exec \"webpack-dev-server --mode development\""
   },
   "dependencies": {
     "bootstrap": "^4.2.1",
