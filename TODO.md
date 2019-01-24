@@ -2,7 +2,6 @@
 
 ## TODO: this starter kit
 
-- Images: PNG, JPG, GIF, SVG
 - Fonts and Font Awesome: WOFF, WOFF2, EOT, TTF, OTF
 - Data: XML, CSV, TSV, JSON
 - Optimize HTML, CSS and Images

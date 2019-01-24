@@ -4,9 +4,11 @@ import $ from 'jquery';
 import alert from './components/alert';
 import button from './components/button';
 import consolePanel from './components/console-panel';
+import logo from './components/logo-image';
 
 // Build page.
 $('#main').append(alert(`Hello '${APP_NAME}'!`));
+$('#main').append(logo());
 $('#main').append(button('Test', test));
 $('#main').append('<hr>');
 $('#main').append(consolePanel());
