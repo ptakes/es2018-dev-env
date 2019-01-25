@@ -1,3 +1,4 @@
+import { DATA_URL_LIMIT } from '../project.config';
 import { default as ImageminPlugin } from 'imagemin-webpack-plugin';
 
 export default (mode = process.env.NODE_ENV) => {
@@ -6,7 +7,7 @@ export default (mode = process.env.NODE_ENV) => {
       ? {
         compress: true,
         iesafe: true,
-        limit: 15000,
+        limit: DATA_URL_LIMIT,
         name: 'images/[name].[ext]'
       }
       : {};
@@ -39,7 +40,7 @@ export default (mode = process.env.NODE_ENV) => {
       new ImageminPlugin(
         Object.assign({}, options, {
           test: /\.(jpe?g|png|gif|svg)$/,
-          disable: !(options && options.compress) // eslint-disable-line sort-keys
+          disable: !options.compress // eslint-disable-line sort-keys
         })
       )
     ]

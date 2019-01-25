@@ -2,7 +2,6 @@
 
 ## TODO: this starter kit
 
-- Fonts and Font Awesome: WOFF, WOFF2, EOT, TTF, OTF
 - Data: XML, CSV, TSV, JSON
 - Optimize HTML, CSS and Images
 - HTTPS for dev server
