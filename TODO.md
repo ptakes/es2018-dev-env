@@ -4,7 +4,6 @@
 
 - Test framework (unit and e2e, /w HTTP mocking)
 - Share work-in-progress
-- Enable Webpack HMR
 - README.md and vscode/extensions.json
 
 ## TODO: integration with Accolade

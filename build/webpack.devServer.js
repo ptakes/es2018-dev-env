@@ -1,5 +1,5 @@
 import { BUILD_DIR, PROJECT_DIR } from '../project.config';
-import { WatchIgnorePlugin } from 'webpack';
+import { HotModuleReplacementPlugin, WatchIgnorePlugin } from 'webpack';
 import fs from 'fs';
 import path from 'path';
 
@@ -17,6 +17,7 @@ export default ({ host = 'localhost', port = 3000 } = {}) => {
   return {
     devServer: {
       host,
+      hot: true,
       https,
       open: true,
       overlay: true,
@@ -27,6 +28,6 @@ export default ({ host = 'localhost', port = 3000 } = {}) => {
         poll: 1000
       }
     },
-    plugins: [new WatchIgnorePlugin([BUILD_DIR, path.join(PROJECT_DIR, 'node_modules')])]
+    plugins: [new WatchIgnorePlugin([BUILD_DIR, path.join(PROJECT_DIR, 'node_modules')]), new HotModuleReplacementPlugin()]
   };
 };

@@ -28,7 +28,7 @@ export default (mode = process.env.NODE_ENV, title = APP_NAME) => {
     mode,
     output: {
       chunkFilename: '[name].[chunkhash].js',
-      filename: '[name].[chunkhash].js',
+      filename: '[name].[hash].js',
       path: mode === 'production' ? BUILD_DIR : APP_DIR,
       publicPath: '/'
     },
