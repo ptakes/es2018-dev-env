@@ -1,12 +1,15 @@
+$font-family-base: 'Open Sans', sans-serif;
+$show-background-logo: false;
 
 @import 'fonts/fonts';
-
-$font-family-base: 'Open Sans', sans-serif;
 @import '~bootstrap/scss/bootstrap';
 
 body {
-  // background-image: url(images/logo.png);
-  // background-repeat: no-repeat;
-  // background-position: center top;
+  @if $show-background-logo {
+    background-image: url(images/logo.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+
   padding: 1rem 0;
 }
