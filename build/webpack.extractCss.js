@@ -1,5 +1,6 @@
 import { APP_DIR } from '../project.config';
 import AutoPrefixer from 'autoprefixer';
+import CssNano from 'cssnano';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import PureCssPlugin from 'purgecss-webpack-plugin';
 import glob from 'glob';
@@ -20,7 +21,12 @@ export default () => ({
           {
             loader: 'postcss-loader',
             options: {
-              plugins: () => [AutoPrefixer],
+              plugins: () => [
+                AutoPrefixer,
+                CssNano({
+                  preset: 'default'
+                })
+              ],
               sourceMap: true
             }
           },
@@ -37,7 +43,7 @@ export default () => ({
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css'
+      filename: '[name].[contenthash].css'
     }),
     new PureCssPlugin({
       paths: glob.sync(`${APP_DIR}/**/*`, { nodir: true })

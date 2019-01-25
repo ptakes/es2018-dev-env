@@ -8,7 +8,7 @@ export default (mode = process.env.NODE_ENV) => {
         compress: true,
         iesafe: true,
         limit: DATA_URL_LIMIT,
-        name: 'images/[name].[ext]'
+        name: 'images/[name].[hash].[ext]'
       }
       : {};
 

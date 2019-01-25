@@ -2,7 +2,6 @@
 
 ## TODO: this starter kit
 
-- Optimize HTML, CSS and Images
 - HTTPS for dev server
 - Build server for dist folder
 - Test framework (unit and e2e, /w HTTP mocking)

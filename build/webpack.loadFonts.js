@@ -5,7 +5,7 @@ export default (mode = process.env.NODE_ENV) => {
     mode === 'production'
       ? {
         limit: DATA_URL_LIMIT,
-        name: 'fonts/[name].[ext]'
+        name: 'fonts/[name].[hash].[ext]'
       }
       : {};
 
