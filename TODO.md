@@ -3,7 +3,6 @@
 ## TODO: this starter kit
 
 - Test framework (unit and e2e, /w HTTP mocking)
-- Share work-in-progress
 - README.md and vscode/extensions.json
 
 ## TODO: integration with Accolade

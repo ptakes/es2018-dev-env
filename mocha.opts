@@ -1,0 +1,4 @@
+--reporter progress
+--require @babel/register
+--ui bdd
+./src/**/*.test.js

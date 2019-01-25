@@ -18,6 +18,8 @@
     "**/node_modules/*/**": true
   },
   "html.format.wrapLineLength": 180,
+  "mochaExplorer.files": "src/**/*.test.js",
+  "mochaExplorer.optsFile": "mocha.opts",
   "prettier.eslintIntegration": true,
   "prettier.printWidth": 180,
   "prettier.singleQuote": true,
