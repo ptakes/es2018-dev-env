@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
-export default (text, clickFn, type = 'primary') =>
-  $(`<button type="button" class="btn btn-${type}"></button>`)
+export default (text, clickFn) =>
+  $('<button type="button" class="btn btn-primary"></button>')
     .text(text)
     .on('click', event => {
       event.preventDefault();

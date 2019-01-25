@@ -6,6 +6,7 @@
   "author": "Peter Takes",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --mode production",
+    "postbuild": "babel-node build/buildServer.js",
     "start": "cross-env NODE_ENV=development nodemon --watch ./*.js* --watch build --ext js --exec \"webpack-dev-server --mode development\""
   },
   "dependencies": {
@@ -19,8 +20,9 @@
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.1",
     "@babel/register": "^7.0.0",
-    "autoprefixer": "^9.4.6",
+    "@fullhuman/postcss-purgecss": "^1.1.0",
     "babel-loader": "^8.0.5",
+    "browser-sync": "^2.26.3",
     "clean-webpack-plugin": "^1.0.1",
     "cross-env": "^5.2.0",
     "cson-loader": "^0.1.0",
@@ -38,7 +40,7 @@
     "nodemon": "^1.18.9",
     "papaparse": "^4.6.3",
     "postcss-loader": "^3.0.0",
-    "purgecss-webpack-plugin": "^1.4.0",
+    "postcss-preset-env": "^6.5.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "svg-url-loader": "^2.3.2",

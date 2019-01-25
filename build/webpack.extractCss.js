@@ -1,9 +1,8 @@
 import { APP_DIR } from '../project.config';
-import AutoPrefixer from 'autoprefixer';
 import CssNano from 'cssnano';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import PureCssPlugin from 'purgecss-webpack-plugin';
-import glob from 'glob';
+import PostCssPresetEnv from 'postcss-preset-env';
+import PurgeCss from '@fullhuman/postcss-purgecss';
 
 export default () => ({
   module: {
@@ -21,10 +20,14 @@ export default () => ({
           {
             loader: 'postcss-loader',
             options: {
+              ident: 'postcss',
               plugins: () => [
-                AutoPrefixer,
+                PostCssPresetEnv,
                 CssNano({
                   preset: 'default'
+                }),
+                PurgeCss({
+                  content: [`${APP_DIR}/**/*.html`, `${APP_DIR}/**/*.js`]
                 })
               ],
               sourceMap: true
@@ -44,9 +47,6 @@ export default () => ({
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css'
-    }),
-    new PureCssPlugin({
-      paths: glob.sync(`${APP_DIR}/**/*`, { nodir: true })
     })
   ]
 });
