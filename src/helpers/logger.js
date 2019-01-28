@@ -9,7 +9,6 @@ import Enum from './enum';
 export const LogLevel = Enum(['none', 'error', 'warn', 'info', 'debug']);
 
 const defaultLogLevel = DEBUG ? LogLevel.debug : LogLevel.warn;
-const loggers = {};
 
 /**
  * A logger that logs messages to the console and optional appends the messages to a DOM element.
@@ -28,7 +27,7 @@ export class Logger {
    * @return {string} true if the logger is in debug mode; otherwise, false.
    */
   get isDebugEnabled() {
-    return this.level === LogLevel.debug;
+    return this._level === LogLevel.debug;
   }
 
   /**
@@ -54,13 +53,7 @@ export class Logger {
    * @param {LogLevel} [level] The logging severity level.
    * @param {Function} [appenderFn] The appender function.
    */
-  constructor(id, level = defaultLogLevel, appenderFn) {
-    const cached = loggers[id];
-    if (cached) {
-      return cached;
-    }
-
-    loggers[id] = this;
+  constructor(id, level, appenderFn) {
     this._id = id;
     this._appenderFn = appenderFn;
     this._level = Number.isInteger(level) && level >= 0 ? level : defaultLogLevel;

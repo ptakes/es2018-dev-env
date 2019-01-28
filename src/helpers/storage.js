@@ -1,6 +1,6 @@
 import Enum from './enum';
 
-const DATE_REGEX = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/;
+const DATE_REGEX = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(.\d+)?Z$/;
 
 /**
  * Storage Types
@@ -45,7 +45,7 @@ export class Storage {
    * Clears the storage.
    */
   clear() {
-    this.keys().forEach(key => this._storage.removeItem(key));
+    this.keys().forEach(key => this._storage.removeItem(this._scope(key)));
   }
 
   /**
@@ -67,7 +67,7 @@ export class Storage {
    * Gets an item from the storage.
    *
    * @param {string} key The key of the item.
-   * @return {any} The item if found.
+   * @return {any} The item if found, otherwise null.
    */
   get(key) {
     const scopedKey = this._scope(key);
@@ -87,7 +87,7 @@ export class Storage {
    * @return {boolean} true if the key was found; otherwise false.
    */
   has(key) {
-    return this.get(key) !== undefined;
+    return this.get(key) !== null;
   }
 
   /**
@@ -96,7 +96,9 @@ export class Storage {
    * @return {string[]} List of all keys.
    */
   keys() {
-    return Object.keys(this._storage).filter(key => this._containerRegex.test(key));
+    return Object.keys(this._storage)
+      .filter(key => this._containerRegex.test(key))
+      .map(this._unscope.bind(this));
   }
 
   /**
@@ -125,11 +127,11 @@ export class Storage {
   _initStorage(type) {
     switch (type) {
     case StorageType.local:
-      this._storage = window.localStorage;
+      this._storage = localStorage;
       break;
 
     case StorageType.session:
-      this._storage = window.sessionStorage;
+      this._storage = sessionStorage;
       break;
     }
 
@@ -147,5 +149,9 @@ export class Storage {
 
   _scope(key) {
     return `@${this._container}/${key}`;
+  }
+
+  _unscope(key) {
+    return key.substr(`@${this._container}/`.length);
   }
 }
