@@ -1,5 +1,4 @@
 import { Storage, StorageType } from './storage';
-import FakeStorage from 'dom-storage';
 import { should } from '../../build/test-setup';
 
 describe('StorageType', () => {
@@ -13,11 +12,6 @@ describe('StorageType', () => {
 });
 
 describe('Storage', () => {
-  beforeEach(() => {
-    global.localStorage = new FakeStorage(null, { strict: true });
-    global.sessionStorage = new FakeStorage(null, { strict: true });
-  });
-
   it('should have container name set', () => {
     const sut = new Storage('test');
     sut.container.should.equal('test');

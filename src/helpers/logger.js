@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { DEBUG } from '../../project.config';
 import Enum from './enum';
 
@@ -110,4 +111,17 @@ export class Logger {
       }
     }
   }
+}
+
+/**
+ * Create an appender that adds logs to an DOM element.
+ * @param {string} elementId The ID of the element.
+ */
+export function createElementAppender(elementId = 'console') {
+  return (message, ...rest) => {
+    const $console = $(`#${elementId}`);
+    const content = $console.val();
+    const messages = [...rest].map(item => JSON.stringify(item, null, '  '));
+    $console.val(content + (content && '\n') + [message, ...messages].join('\n'));
+  };
 }

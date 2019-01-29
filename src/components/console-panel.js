@@ -10,8 +10,7 @@ export default (id = 'console', rows = 25) => {
   $(`#clear-${id}`, $console).on('click', event => {
     event.preventDefault();
     event.stopPropagation();
-    const x = $(`#${id}`);
-    $(`#${id}`).val('');
+    $(`#${id}`, $console).val('');
   });
 
   return $console;

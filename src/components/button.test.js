@@ -3,14 +3,13 @@ import button from './button'; // eslint-disable-line
 
 describe('Button Component', () => {
   it('should returns a button', () => {
-    const $button = button('click me');
-    $button.text().should.equal('click me');
+    button('click me').should.have.text('click me');
   });
 
   it('should be a primary button', () => {
     const $button = button('message');
-    $button.hasClass('btn').should.be.true;
-    $button.hasClass('btn-primary').should.be.true;
+    $button.should.have.class('btn');
+    $button.should.have.class('btn-primary');
   });
 
   it('should invoke handler when clicked', () => {

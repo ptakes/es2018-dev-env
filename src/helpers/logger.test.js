@@ -21,26 +21,10 @@ describe('LogLevel', () => {
 });
 
 describe('Logger', () => {
-  let sandbox = null;
-  let appender = null;
-
-  afterEach(() => {
-    if (sandbox) {
-      sandbox.restore();
-      sandbox = null;
-    }
-
-    appender = null;
-  });
+  let appender;
 
   beforeEach(() => {
-    sandbox = sinon.createSandbox();
-    sandbox.stub(console, 'debug');
-    sandbox.stub(console, 'error');
-    sandbox.stub(console, 'info');
-    sandbox.stub(console, 'warn');
-
-    appender = sinon.fake();
+    appender = sinon.spy();
   });
 
   it('should have ID set', () => {

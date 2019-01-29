@@ -3,18 +3,16 @@ import alert from './alert';
 
 describe('Alert Component', () => {
   it('should returns an alert panel with a message', () => {
-    const $alert = alert('message');
-    $alert.text().should.equal('message');
+    alert('message').should.have.text('message');
   });
 
   it('should be a primary alert', () => {
     const $alert = alert('message');
-    $alert.hasClass('alert').should.be.true;
-    $alert.hasClass('alert-primary').should.be.true;
+    $alert.should.have.class('alert');
+    $alert.should.have.class('alert-primary');
   });
 
   it('should have ARIA-role `alert`', () => {
-    const $alert = alert('message');
-    $alert.attr('role').should.equal('alert');
+    alert('message').should.have.attr('role', 'alert');
   });
 });

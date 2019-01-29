@@ -8,7 +8,7 @@
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "postbuild": "babel-node build/buildServer.js",
     "start": "cross-env NODE_ENV=development nodemon --watch ./*.js* --watch build --ext js --exec \"webpack-dev-server --mode development\"",
-    "test": "mocha --opts ./mocha.opts --watch"
+    "test": "mocha --opts ./mocha.opts"
   },
   "dependencies": {
     "bootstrap": "^4.2.1",
@@ -26,6 +26,7 @@
     "browser-sync": "^2.26.3",
     "chai": "^4.2.0",
     "chai-datetime": "^1.5.0",
+    "chai-jquery": "^2.1.0",
     "clean-webpack-plugin": "^1.0.1",
     "cross-env": "^5.2.0",
     "cson-loader": "^0.1.0",
