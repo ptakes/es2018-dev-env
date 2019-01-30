@@ -1,15 +1,20 @@
-import { sinon } from '../../build/test-setup';
-import button from './button'; // eslint-disable-line
+import { mockBrowser, sinon } from '../../build/test-setup';
+import button from './button';
 
 describe('Button Component', () => {
+  mockBrowser();
+
   it('should returns a button', () => {
-    button('click me').should.have.text('click me');
+    const $sut = button('click me');
+
+    $sut.text().should.equal('click me');
   });
 
   it('should be a primary button', () => {
-    const $button = button('message');
-    $button.should.have.class('btn');
-    $button.should.have.class('btn-primary');
+    const $sut = button('message');
+
+    $sut.hasClass('btn').should.be.true;
+    $sut.hasClass('btn-primary').should.be.true;
   });
 
   it('should invoke handler when clicked', () => {

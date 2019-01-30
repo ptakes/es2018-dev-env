@@ -1,4 +1,4 @@
-import { APP_NAME, DEBUG } from '../project.config';
+import { APP_NAME, DEBUG_MODE, TEST_MODE } from '../project.config';
 import { LogLevel, Logger, createElementAppender } from './helpers/logger';
 import $ from 'jquery';
 import alert from './components/alert';
@@ -22,7 +22,7 @@ export function loadPage() {
 
   // Setup logger.
   const logger = new Logger('main', LogLevel.info, createElementAppender());
-  logger.info(`debugMode: ${DEBUG}`);
+  logger.info(`debugMode: ${DEBUG_MODE}`);
   logger.info(`logger.isDebugEnabled: ${logger.isDebugEnabled}`);
 
   // Testing...
@@ -35,4 +35,6 @@ export function loadPage() {
   }
 }
 
-loadPage();
+if (!TEST_MODE) {
+  loadPage();
+}

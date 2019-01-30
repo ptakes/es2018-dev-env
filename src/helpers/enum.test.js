@@ -58,7 +58,6 @@ describe('Enum', () => {
   it('should be immutable', () => {
     const sut = Enum(['alpha', 'beta', 'gamma']);
 
-    (() => (sut.delta = 3)).should.throw(Error);
-    (() => (sut[3] = 'delta')).should.throw(Error);
+    sut.should.be.frozen;
   });
 });

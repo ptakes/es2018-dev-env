@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { DEBUG } from '../../project.config';
+import { DEBUG_MODE } from '../../project.config';
 import Enum from './enum';
 
 /**
@@ -9,7 +9,7 @@ import Enum from './enum';
  */
 export const LogLevel = Enum(['none', 'error', 'warn', 'info', 'debug']);
 
-const defaultLogLevel = DEBUG ? LogLevel.debug : LogLevel.warn;
+const defaultLogLevel = DEBUG_MODE ? LogLevel.debug : LogLevel.warn;
 
 /**
  * A logger that logs messages to the console and optional appends the messages to a DOM element.

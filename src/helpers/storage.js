@@ -20,7 +20,7 @@ export class Storage {
    */
   constructor(container, type = StorageType.local) {
     this._container = container;
-    this._containerRegex = new RegExp(`^@${this._container}/`);
+    this._containerRegex = new RegExp(`^@${this._container}/(.+)`);
     this._type = type !== undefined ? type : StorageType.local;
     this._initStorage(this._type);
   }
@@ -55,12 +55,9 @@ export class Storage {
    * @return {any} The deleted item.
    */
   delete(key) {
-    let value = this.get(key);
-    if (value !== undefined) {
-      const scopedKey = this._scope(key);
-      this._storage.removeItem(scopedKey);
-      return value;
-    }
+    const value = this.get(key);
+    this._storage.removeItem(this._scope(key));
+    return value;
   }
 
   /**
@@ -98,7 +95,7 @@ export class Storage {
   keys() {
     return Object.keys(this._storage)
       .filter(key => this._containerRegex.test(key))
-      .map(this._unscope.bind(this));
+      .map(key => this._unscope(key));
   }
 
   /**
@@ -152,6 +149,6 @@ export class Storage {
   }
 
   _unscope(key) {
-    return key.substr(`@${this._container}/`.length);
+    return this._containerRegex.exec(key)[1];
   }
 }

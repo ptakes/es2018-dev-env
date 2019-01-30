@@ -1,5 +1,5 @@
 import { Storage, StorageType } from './storage';
-import { should } from '../../build/test-setup';
+import { mockStorage, should } from '../../build/test-setup';
 
 describe('StorageType', () => {
   it('should be an enum', () => {
@@ -12,13 +12,17 @@ describe('StorageType', () => {
 });
 
 describe('Storage', () => {
+  mockStorage();
+
   it('should have container name set', () => {
     const sut = new Storage('test');
+
     sut.container.should.equal('test');
   });
 
   it('should be empty upon first usage', () => {
     const sut = new Storage('test');
+
     sut.count.should.equal(0);
     sut.keys().should.have.all.members([]);
     sut.values().should.have.all.members([]);
@@ -26,26 +30,33 @@ describe('Storage', () => {
 
   it('should have local storage as default storage', () => {
     const sut = new Storage('test');
+
     sut._storage.should.equal(global.localStorage);
   });
 
   it('should set storage type to local', () => {
     const sut = new Storage('test', StorageType.local);
+
     sut._storage.should.equal(global.localStorage);
   });
 
   it('should set storage type to session', () => {
     const sut = new Storage('test', StorageType.session);
+
     sut._storage.should.equal(global.sessionStorage);
   });
 
   it('should return null for not saved values', () => {
     const sut = new Storage('test');
-    should.equal(sut.get('value1'), null);
+
+    const value1 = sut.get('value1');
+
+    should.equal(value1, null);
   });
 
   it('should save a plain value', () => {
     const sut = new Storage('test');
+
     sut.set('value', 123);
 
     sut.count.should.equal(1);
@@ -58,6 +69,7 @@ describe('Storage', () => {
   it('should save a Date value', () => {
     const sut = new Storage('test');
     const expected = new Date();
+
     sut.set('value', expected);
 
     const actual = sut.get('value');
@@ -68,6 +80,7 @@ describe('Storage', () => {
   it('should save an array value', () => {
     const sut = new Storage('test');
     const value = ['value1', 'value2', 'value3'];
+
     sut.set('value', value);
 
     sut.get('value').should.have.all.members(value);
@@ -84,6 +97,7 @@ describe('Storage', () => {
     sut.set('value', expected);
 
     const actual = sut.get('value');
+
     actual.should.have.keys(['value1', 'value2', 'value3', 'value4']);
     actual.value1.should.equal(expected.value1);
     actual.value2.should.equal(expected.value2);
@@ -95,15 +109,16 @@ describe('Storage', () => {
   it('should delete a saved value', () => {
     const sut = new Storage('test');
     sut.set('value1', 1);
-    sut.set('value2', true);
-    sut.set('value3', new Date());
-    sut.set('value4', 'text');
+    sut.set('value2', 2);
+    sut.set('value3', 3);
+    sut.set('value4', 4);
 
-    sut.delete('value3');
+    sut.delete('value3').should.equal(3);
+
     sut.has('value3').should.be.false;
     sut.count.should.equal(3);
     sut.keys().should.have.all.members(['value1', 'value2', 'value4']);
-    sut.values().should.have.all.members([1, true, 'text']);
+    sut.values().should.have.all.members([1, 2, 4]);
   });
 
   it('should clear the container', () => {

@@ -1,32 +1,36 @@
-import '../../build/test-setup';
+import { mockBrowser } from '../../build/test-setup';
 import panel from './console-panel';
 
 describe('ConsolePanel Component', () => {
+  mockBrowser();
+
   it('should returns a readonly textarea with 25 rows', () => {
-    const $console = panel().find('#console');
-    $console.should.have.attr('readonly');
-    $console.should.have.attr('rows', '25');
-    $console.should.have.value('');
+    const $sut = panel().find('#console');
+
+    $sut.is('[readonly]').should.be.true;
+    $sut.attr('rows').should.equal('25');
+    $sut.val().should.be.empty;
   });
 
   it('should be able to set ID', () => {
-    panel('my-console').find('#my-console').should.exist;
+    const $sut = panel('my-console').find('#my-console');
+
+    $sut.attr('id').should.equal('my-console');
   });
 
   it('should be able to set rows', () => {
-    panel(undefined, 10)
-      .find('#console')
-      .should.have.attr('rows', '10');
+    const $sut = panel(undefined, 10).find('#console');
+
+    $sut.attr('rows').should.equal('10');
   });
 
   it('should be able to click clear button', () => {
-    const $panel = panel();
-    const $console = $panel.find('#console');
+    const $sut = panel().find('#console');
 
-    $console.val('testing...');
-    $console.should.have.value('testing...');
+    $sut.val('testing...');
+    $sut.val().should.equal('testing...');
 
-    $panel.find('#clear-console').trigger('click');
-    $console.should.have.value('');
+    $sut.siblings('#clear-console').trigger('click');
+    $sut.val().should.be.empty;
   });
 });

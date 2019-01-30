@@ -1,24 +1,35 @@
-import '../build/test-setup';
-import $ from 'jquery';
+import { mockBrowser, mockConsole } from '../build/test-setup';
+import $ from 'jquery'; // eslint-disable-line sort-imports
 import { loadPage } from './index';
 
 describe('Index Page', () => {
+  mockBrowser();
+  mockConsole();
+
   beforeEach(() => loadPage());
 
   it('should have an alert', () => {
-    $('#main').find('.alert').should.exist;
+    $('#main')
+      .find('.alert')
+      .should.have.lengthOf(1);
   });
 
   it('should have an logo image', () => {
-    $('#main').find('img').should.exist;
+    $('#main')
+      .find('img')
+      .should.have.lengthOf(1);
   });
 
   it('should have an test button', () => {
-    $('#main').find('button:contains("Test")').should.exist;
+    $('#main')
+      .find('button:contains("Test")')
+      .should.have.lengthOf(1);
   });
 
   it('should have an console panel', () => {
-    $('#main').find('textarea#console').should.exist;
+    $('#main')
+      .find('textarea#console')
+      .length.should.equal(1);
   });
 
   it('should have log messages about debug state', () => {
