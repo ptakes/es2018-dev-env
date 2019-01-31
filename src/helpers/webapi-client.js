@@ -140,7 +140,7 @@ export class WebApiClient {
   }
 
   _fetchAsync(method, url, data, responseHeaders, anonymous) {
-    const hasBody = method === 'POST' || method === 'PUT' || method === 'PATCH';
+    const hasBody = method === HttpMethod.POST || method === HttpMethod.PUT || method === HttpMethod.PATCH;
 
     const headers = new Headers({ Accept: 'application/json' });
     if (hasBody) {

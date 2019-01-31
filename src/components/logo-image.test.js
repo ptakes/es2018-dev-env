@@ -1,4 +1,4 @@
-import { mockBrowser } from '../../build/test-setup';
+import { mockBrowser } from '../../build/testFramework';
 import image from './logo-image'; // eslint-disable-line sort-imports
 
 describe('LogoImage Component', () => {

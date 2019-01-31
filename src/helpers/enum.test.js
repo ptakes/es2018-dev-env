@@ -1,4 +1,4 @@
-import '../../build/test-setup';
+import '../../build/testFramework';
 import Enum from './enum';
 
 describe('Enum', () => {

@@ -1,4 +1,3 @@
-import '@babel/polyfill';
 import { JSDOM } from 'jsdom';
 import Storage from 'dom-storage';
 import chai from 'chai';

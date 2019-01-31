@@ -69,12 +69,7 @@ export class Storage {
   get(key) {
     const scopedKey = this._scope(key);
     const item = this._storage.getItem(scopedKey);
-    try {
-      return JSON.parse(item, this._reviver.bind(this));
-    }
-    catch (error) {
-      return item;
-    }
+    return JSON.parse(item, this._reviver.bind(this));
   }
 
   /**

@@ -1,5 +1,5 @@
 import { Storage, StorageType } from './storage';
-import { mockStorage, should } from '../../build/test-setup';
+import { mockStorage, should } from '../../build/testFramework';
 
 describe('StorageType', () => {
   it('should be an enum', () => {

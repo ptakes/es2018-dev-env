@@ -1,5 +1,5 @@
 import { LogLevel, Logger } from './logger';
-import { mockConsole, sinon } from '../../build/test-setup';
+import { mockConsole, sinon } from '../../build/testFramework';
 
 describe('LogLevel', () => {
   it('should be an enum', () => {

@@ -1,4 +1,4 @@
-import { mockServer, should } from '../../build/test-setup';
+import { mockServer, should } from '../../build/testFramework';
 import { HttpStatus, WebApiClient } from './webapi-client'; // eslint-disable-line sort-imports
 import { Base64 } from 'js-base64';
 

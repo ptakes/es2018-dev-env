@@ -8,7 +8,7 @@
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "postbuild": "babel-node build/buildServer.js",
     "start": "cross-env NODE_ENV=development nodemon --watch ./*.js* --watch build --ext js --exec \"webpack-dev-server --mode development\"",
-    "test": "mocha --opts ./mocha.opts"
+    "test": "cross-env NODE_ENV=test nyc mocha --opts ./mocha.opts"
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
@@ -25,6 +25,7 @@
     "@babel/register": "^7.0.0",
     "@fullhuman/postcss-purgecss": "^1.1.0",
     "babel-loader": "^8.0.5",
+    "babel-plugin-istanbul": "^5.1.0",
     "browser-sync": "^2.26.3",
     "chai": "^4.2.0",
     "chai-datetime": "^1.5.0",
@@ -47,6 +48,7 @@
     "mockttp": "^0.12.6",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.9",
+    "nyc": "^13.1.0",
     "papaparse": "^4.6.3",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.5.0",

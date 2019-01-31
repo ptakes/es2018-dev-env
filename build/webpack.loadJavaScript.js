@@ -1,4 +1,4 @@
-import { APP_DIR, DEBUG } from '../project.config';
+import { APP_DIR, DEBUG_MODE } from '../project.config';
 
 export default () => ({
   module: {
@@ -14,7 +14,7 @@ export default () => ({
                 [
                   '@babel/preset-env',
                   {
-                    debug: DEBUG,
+                    debug: DEBUG_MODE,
                     modules: false, // Let Webpack handle the imports.
                     useBuiltIns: 'usage'
                   }

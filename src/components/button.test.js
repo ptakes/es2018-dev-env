@@ -1,4 +1,4 @@
-import { mockBrowser, sinon } from '../../build/test-setup';
+import { mockBrowser, sinon } from '../../build/testFramework';
 import button from './button';
 
 describe('Button Component', () => {

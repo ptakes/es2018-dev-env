@@ -1,4 +1,4 @@
-import { mockBrowser, mockConsole } from '../build/test-setup';
+import { mockBrowser, mockConsole } from '../build/testFramework';
 import $ from 'jquery'; // eslint-disable-line sort-imports
 import { loadPage } from './index';
 

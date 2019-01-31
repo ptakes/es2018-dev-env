@@ -2,9 +2,8 @@
 
 ## TODO: this starter kit
 
-- Test framework (unit and e2e, /w HTTP mocking)
-- Code Covarage
 - Test libraries from Accolade
+- Command to clone project
 - README.md and vscode/extensions.json
 
 ## TODO: integration with Accolade

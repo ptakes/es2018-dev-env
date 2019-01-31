@@ -1,4 +1,4 @@
-import { mockBrowser } from '../../build/test-setup';
+import { mockBrowser } from '../../build/testFramework';
 import panel from './console-panel';
 
 describe('ConsolePanel Component', () => {
