@@ -2,7 +2,6 @@
 
 ## TODO: this starter kit
 
-- Command to clone project
 - README.md and vscode/extensions.json
 
 ## TODO: integration with Accolade
