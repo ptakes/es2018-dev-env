@@ -2,7 +2,8 @@
 
 ## TODO: this starter kit
 
-- README.md and vscode/extensions.json
+- vscode/extensions.json
+- Font Awesome tree shake
 
 ## TODO: integration with Accolade
 

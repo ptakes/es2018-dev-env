@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
+    "@fortawesome/fontawesome-free": "^5.7.1",
     "bootstrap": "^4.2.1",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.3.1",

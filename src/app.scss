@@ -4,6 +4,10 @@ $show-background-logo: false;
 @import 'fonts/fonts';
 @import '~bootstrap/scss/bootstrap';
 
+$fa-font-path: '../node_modules/@fortawesome/fontawesome-free/webfonts';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+
 body {
   @if $show-background-logo {
     background-image: url(images/logo.png);
@@ -13,3 +17,4 @@ body {
 
   padding: 1rem 0;
 }
+
