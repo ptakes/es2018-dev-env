@@ -2,7 +2,6 @@
 
 ## TODO: this starter kit
 
-- Test libraries from Accolade
 - Command to clone project
 - README.md and vscode/extensions.json
 

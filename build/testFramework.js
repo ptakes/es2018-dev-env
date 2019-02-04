@@ -2,6 +2,7 @@ import { JSDOM } from 'jsdom';
 import Storage from 'dom-storage';
 import chai from 'chai';
 import chaiDateTime from 'chai-datetime';
+import faker from 'faker';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
@@ -116,4 +117,4 @@ function mockServer(port) {
   return httpServer;
 }
 
-export { mockBrowser, mockConsole, mockServer, mockStorage, should, sandbox as sinon };
+export { faker, mockBrowser, mockConsole, mockServer, mockStorage, should, sandbox as sinon };
