@@ -9,12 +9,14 @@ import dataCsv from './data/dummy-data.csv';
 import dataJson from './data/dummy-data.json5';
 import dataXml from './data/dummy-data.xml';
 import logo from './components/logo-image';
+import text from './components/text';
 
 export function loadPage() {
   // Build page.
   $('#main')
     .empty()
     .append(alert(`Hello '${APP_NAME}'!`))
+    .append(text('requiredField', 'Required Field', true))
     .append(logo())
     .append(button('Test', test))
     .append('<hr>')
@@ -26,12 +28,28 @@ export function loadPage() {
   logger.info(`logger.isDebugEnabled: ${logger.isDebugEnabled}`);
 
   // Testing...
-  function test() {
-    logger.info('Test button clicked!');
-    logger.info('data (CSV):', dataCsv);
-    logger.info('data (CSON):', dataCson);
-    logger.info('data (JSON):', dataJson);
-    logger.info('data (XML):', dataXml);
+  function validateForm($form) {
+    const isValid = $form[0].checkValidity();
+    if (isValid) {
+      $form.removeClass('was-validated');
+      $form[0].reset();
+    }
+    else {
+      $form.addClass('was-validated');
+    }
+
+    return isValid;
+  }
+
+  function test($button) {
+    const isValid = validateForm($button.closest('form'));
+    if (isValid) {
+      logger.info('Test button clicked!');
+      logger.info('data (CSV):', dataCsv);
+      logger.info('data (CSON):', dataCson);
+      logger.info('data (JSON):', dataJson);
+      logger.info('data (XML):', dataXml);
+    }
   }
 }
 

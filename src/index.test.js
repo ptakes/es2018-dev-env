@@ -14,19 +14,25 @@ describe('Index Page', () => {
       .should.have.lengthOf(1);
   });
 
-  it('should have an logo image', () => {
+  it('should have a required text field', () => {
+    $('#main')
+      .find('#requiredField')
+      .should.have.lengthOf(1);
+  });
+
+  it('should have a logo image', () => {
     $('#main')
       .find('img')
       .should.have.lengthOf(1);
   });
 
-  it('should have an test button', () => {
+  it('should have a test button', () => {
     $('#main')
       .find('button:contains("Test")')
       .should.have.lengthOf(1);
   });
 
-  it('should have an console panel', () => {
+  it('should have a console panel', () => {
     $('#main')
       .find('textarea#console')
       .length.should.equal(1);
@@ -44,6 +50,7 @@ describe('Index Page', () => {
   });
 
   it('should add log messages when test button is clicked', () => {
+    $('#requiredField').val('some text');
     $('button:contains("Test")').trigger('click');
     console.info.should.have.callCount(7); // eslint-disable-line no-console
     console.info.should.have.been.calledWith('INFO [main] Test button clicked!'); // eslint-disable-line no-console
@@ -52,5 +59,16 @@ describe('Index Page', () => {
       .val()
       .split('\n');
     lines.findIndex(line => line === 'INFO [main] Test button clicked!').should.not.equal(-1);
+  });
+
+  it('should not add log messages when test button is clicked and required field is not set', () => {
+    $('button:contains("Test")').trigger('click');
+    console.info.should.have.callCount(2); // eslint-disable-line no-console
+    console.info.should.have.not.been.calledWith('INFO [main] Test button clicked!'); // eslint-disable-line no-console
+
+    const lines = $('#console')
+      .val()
+      .split('\n');
+    lines.findIndex(line => line === 'INFO [main] Test button clicked!').should.equal(-1);
   });
 });

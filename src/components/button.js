@@ -6,5 +6,5 @@ export default (text, clickFn) =>
     .on('click', event => {
       event.preventDefault();
       event.stopPropagation();
-      clickFn();
+      clickFn($(event.target));
     });
