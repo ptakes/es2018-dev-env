@@ -1,10 +1,5 @@
 # TODO
 
-## TODO: this starter kit
-
-- vscode/extensions.json
-- Font Awesome tree shake
-
 ## TODO: integration with Accolade
 
 - Accolade Web Api proxy

@@ -1,0 +1,31 @@
+{
+  "recommendations": [
+    "alefragnani.project-manager",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "codezombiech.gitignore",
+    "davidanson.vscode-markdownlint",
+    "dbaeumer.vscode-eslint",
+    "donjayamanne.git-extension-pack",
+    "donjayamanne.githistory",
+    "dotjoshjohnson.xml",
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "eg2.vscode-npm-script",
+    "emmanuelbeziat.vscode-great-icons",
+    "esbenp.prettier-vscode",
+    "glen-84.sass-lint",
+    "hbenl.vscode-mocha-test-adapter",
+    "hbenl.vscode-test-explorer",
+    "mrmlnc.vscode-json5",
+    "ms-vscode.vs-keybindings",
+    "msjsdiag.debugger-for-chrome",
+    "robinbentley.sass-indented",
+    "ryanluker.vscode-coverage-gutters",
+    "sasa.vscode-sass-format",
+    "searking.preview-vscode",
+    "steoates.autoimport",
+    "yzhang.markdown-all-in-one",
+    "ziyasal.vscode-open-in-github"
+  ]
+}
