@@ -1,6 +1,53 @@
 import { mockServer, should } from '../../build/testFramework';
-import { HttpStatus, WebApiClient } from './webapi-client'; // eslint-disable-line sort-imports
+import { HttpMethod, HttpStatus, WebApiClient } from './webapi-client'; // eslint-disable-line sort-imports
 import { Base64 } from 'js-base64';
+
+describe('HttpMethod', () => {
+  it('should be an enum', () => {
+    HttpMethod.DELETE.should.equal(0);
+    HttpMethod[HttpMethod.DELETE].should.equal('DELETE');
+
+    HttpMethod.GET.should.equal(1);
+    HttpMethod[HttpMethod.GET].should.equal('GET');
+
+    HttpMethod.OPTIONS.should.equal(2);
+    HttpMethod[HttpMethod.OPTIONS].should.equal('OPTIONS');
+
+    HttpMethod.PATCH.should.equal(3);
+    HttpMethod[HttpMethod.PATCH].should.equal('PATCH');
+
+    HttpMethod.POST.should.equal(4);
+    HttpMethod[HttpMethod.POST].should.equal('POST');
+
+    HttpMethod.PUT.should.equal(5);
+    HttpMethod[HttpMethod.PUT].should.equal('PUT');
+  });
+});
+
+describe('HttpStatus', () => {
+  it('should be an enum', () => {
+    HttpStatus.OK.should.equal(200);
+    HttpStatus[HttpStatus.OK].should.equal('OK');
+
+    HttpStatus.Created.should.equal(201);
+    HttpStatus[HttpStatus.Created].should.equal('Created');
+
+    HttpStatus.NoContent.should.equal(204);
+    HttpStatus[HttpStatus.NoContent].should.equal('NoContent');
+
+    HttpStatus.BadRequest.should.equal(400);
+    HttpStatus[HttpStatus.BadRequest].should.equal('BadRequest');
+
+    HttpStatus.Forbidden.should.equal(403);
+    HttpStatus[HttpStatus.Forbidden].should.equal('Forbidden');
+
+    HttpStatus.NotFound.should.equal(404);
+    HttpStatus[HttpStatus.NotFound].should.equal('NotFound');
+
+    HttpStatus.MethodNotAllowed.should.equal(405);
+    HttpStatus[HttpStatus.MethodNotAllowed].should.equal('MethodNotAllowed');
+  });
+});
 
 describe('WebApiClient', () => {
   describe('constructor', () => {
