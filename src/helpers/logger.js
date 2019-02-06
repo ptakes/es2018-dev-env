@@ -6,11 +6,11 @@ import Enum from './enum';
   @typedef LogLevelEnum
   @type {object}
   @property {number} _
-  @property {number} none
-  @property {number} error
-  @property {number} warn
-  @property {number} info
-  @property {number} debug
+  @property {number} none No Messages
+  @property {number} error Error Messages
+  @property {number} warn Warning Messages
+  @property {number} info Informational Messages
+  @property {number} debug Debug Messages
  */
 
 /**

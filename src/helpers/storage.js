@@ -6,8 +6,8 @@ const DATE_REGEX = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(.\d+)?Z$/;
   @typedef StorageTypeEnum
   @type {object}
   @property {number} _
-  @property {number} local
-  @property {number} session
+  @property {number} local Local Storage
+  @property {number} session Session Storage
  */
 
 /**

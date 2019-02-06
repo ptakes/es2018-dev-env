@@ -3,8 +3,43 @@ import { Base64 } from 'js-base64';
 import Enum from './enum';
 import { Logger } from './logger';
 
+/**
+  @typedef HttpMethodEnum
+  @type {object}
+  @property {number} _
+  @property {number} DELETE
+  @property {number} GET
+  @property {number} OPTIONS
+  @property {number} PATCH
+  @property {number} POST
+  @property {number} PUT
+ */
+
+/**
+ * HTTP Methods
+ * @enum {number}
+ * @type {HttpMethodEnum}
+ */
 export const HttpMethod = Enum(['DELETE', 'GET', 'OPTIONS', 'PATCH', 'POST', 'PUT']);
 
+/**
+  @typedef HttpStatusEnum
+  @type {object}
+  @property {number} _
+  @property {number} OK 200 OK
+  @property {number} Created 201 Created
+  @property {number} NoContent 204 No Content
+  @property {number} BadRequest 400 Bad Request
+  @property {number} Forbidden 403 Forbidden
+  @property {number} NotFound 404 Not Found
+  @property {number} MethodNotAllowed 405 Method Not Allowed
+ */
+
+/**
+ * HTTP Status Codes
+ * @enum {number}
+ * @type {HttpStatusEnum}
+ */
 export const HttpStatus = Enum({
   OK: 200,
   Created: 201, // eslint-disable-line sort-keys
