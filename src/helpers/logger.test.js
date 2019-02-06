@@ -1,24 +1,5 @@
-import { LogLevel, Logger } from './logger';
-import { mockConsole, sinon } from '../../build/testFramework';
-
-describe('LogLevel', () => {
-  it('should be an enum', () => {
-    LogLevel.none.should.equal(0);
-    LogLevel[LogLevel.none].should.equal('none');
-
-    LogLevel.error.should.equal(1);
-    LogLevel[LogLevel.error].should.equal('error');
-
-    LogLevel.warn.should.equal(2);
-    LogLevel[LogLevel.warn].should.equal('warn');
-
-    LogLevel.info.should.equal(3);
-    LogLevel[LogLevel.info].should.equal('info');
-
-    LogLevel.debug.should.equal(4);
-    LogLevel[LogLevel.debug].should.equal('debug');
-  });
-});
+import { LogLevel, Logger, createElementAppender } from './logger';
+import { mockBrowser, mockConsole, sinon } from '../../build/testFramework';
 
 describe('Logger', () => {
   mockConsole();
@@ -146,5 +127,68 @@ describe('Logger', () => {
     console.info.should.have.callCount(0); // eslint-disable-line no-console
     console.warn.should.have.been.calledWith('WARN [TEST] message'); // eslint-disable-line no-console
     console.error.should.have.been.calledWith('ERROR [TEST] message'); // eslint-disable-line no-console
+  });
+
+  describe('LogLevel', () => {
+    it('should be an enum', () => {
+      LogLevel.none.should.equal(0);
+      LogLevel[LogLevel.none].should.equal('none');
+
+      LogLevel.error.should.equal(1);
+      LogLevel[LogLevel.error].should.equal('error');
+
+      LogLevel.warn.should.equal(2);
+      LogLevel[LogLevel.warn].should.equal('warn');
+
+      LogLevel.info.should.equal(3);
+      LogLevel[LogLevel.info].should.equal('info');
+
+      LogLevel.debug.should.equal(4);
+      LogLevel[LogLevel.debug].should.equal('debug');
+    });
+  });
+
+  describe('Element Appender', () => {
+    mockBrowser();
+
+    it('should add a message to textarea', () => {
+      const $ = require('jquery');
+      $('body').append('<textarea id="console"></textarea>');
+
+      const sut = createElementAppender();
+      const logger = new Logger('TEST', LogLevel.debug, sut);
+      logger.debug('message');
+
+      $('#console')
+        .val()
+        .should.equal('DEBUG [TEST] message');
+    });
+
+    it('should add multiple messages to textarea', () => {
+      const $ = require('jquery');
+      $('body').append('<textarea id="console"></textarea>');
+
+      const sut = createElementAppender();
+      const logger = new Logger('TEST', LogLevel.debug, sut);
+      logger.debug('message1');
+      logger.debug('message2');
+
+      $('#console')
+        .val()
+        .should.equal('DEBUG [TEST] message1\nDEBUG [TEST] message2');
+    });
+
+    it('should add a message to textarea with custom ID', () => {
+      const $ = require('jquery');
+      $('body').append('<textarea id="my-log"></textarea>');
+
+      const sut = createElementAppender('my-log');
+      const logger = new Logger('TEST', LogLevel.debug, sut);
+      logger.debug('message');
+
+      $('#my-log')
+        .val()
+        .should.equal('DEBUG [TEST] message');
+    });
   });
 });

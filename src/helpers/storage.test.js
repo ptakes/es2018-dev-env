@@ -1,16 +1,6 @@
 import { Storage, StorageType } from './storage';
 import { mockStorage, should } from '../../build/testFramework';
 
-describe('StorageType', () => {
-  it('should be an enum', () => {
-    StorageType.local.should.equal(0);
-    StorageType[StorageType.local].should.equal('local');
-
-    StorageType.session.should.equal(1);
-    StorageType[StorageType.session].should.equal('session');
-  });
-});
-
 describe('Storage', () => {
   mockStorage();
 
@@ -157,5 +147,15 @@ describe('Storage', () => {
 
     container1.get('value').should.equal('container1');
     container2.get('value').should.equal('container2');
+  });
+
+  describe('StorageType', () => {
+    it('should be an enum', () => {
+      StorageType.local.should.equal(0);
+      StorageType[StorageType.local].should.equal('local');
+
+      StorageType.session.should.equal(1);
+      StorageType[StorageType.session].should.equal('session');
+    });
   });
 });

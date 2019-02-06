@@ -4,5 +4,6 @@ declare module NodeJS {
     document: Document;
     localStorage: Storage;
     sessionStorage: Storage;
+    jQuery: JQueryStatic;
   }
 }
