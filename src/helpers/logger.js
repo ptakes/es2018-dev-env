@@ -3,9 +3,20 @@ import { DEBUG_MODE } from '../../project.config';
 import Enum from './enum';
 
 /**
+  @typedef LogLevelEnum
+  @type {object}
+  @property {number} _
+  @property {number} none
+  @property {number} error
+  @property {number} warn
+  @property {number} info
+  @property {number} debug
+ */
+
+/**
  * Logging severity levels.
  * @enum {number}
- * @type {'none'|'error'|'warn'|'info'|'debug'}
+ * @type {LogLevelEnum}
  */
 export const LogLevel = Enum(['none', 'error', 'warn', 'info', 'debug']);
 
@@ -25,7 +36,7 @@ export class Logger {
 
   /**
    * Returns if the logger is in debug mode or not.
-   * @return {string} true if the logger is in debug mode; otherwise, false.
+   * @return {boolean} true if the logger is in debug mode; otherwise, false.
    */
   get isDebugEnabled() {
     return this._level === LogLevel.debug;

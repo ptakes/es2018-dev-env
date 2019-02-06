@@ -10,6 +10,7 @@
  * const values = Enum({ four: 4 };
  * value.four; // returns 4
  * @param {array|object} values The enum values.
+ * @returns {object}
  */
 export default function Enum(values) {
   const result = {};

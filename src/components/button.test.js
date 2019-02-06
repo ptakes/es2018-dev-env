@@ -7,7 +7,7 @@ describe('Button Component', () => {
   it('should returns a button', () => {
     const $sut = button('click me');
 
-    $sut.text().should.equal('click me');
+    $sut.text().trim().should.equal('click me');
   });
 
   it('should be a primary button', () => {

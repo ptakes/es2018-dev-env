@@ -28,3 +28,14 @@
 - Creating a Production Build: `npm run build -s`
 - Running all Unit Tests with Code Coverage: `npm test -s`
 - Clone Project: `npm run clone <project name>`
+
+## Setup starter kit
+
+1. Install **[Node 10 or newer](https://nodejs.org)**. Need to run multiple versions of Node? Use [nvm](https://github.com/creationix/nvm) or [nvm-windows](https://github.com/coreybutler/nvm-windows).
+2. Install **[Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)**.
+3. Install **[Ruby and Ruby Sass](https://marketplace.visualstudio.com/items?itemName=sasa.vscode-sass-format)**.
+4. Install **[Visual Studio Code](https://code.visualstudio.com/)**.
+5. **Get starter kit** from GitHub: `git clone https://github.com/ptakes/es2018-dev-env.git`
+6. Install recommended **Visual Studio Code extensions**. You will be prompted to install the extensions after opening starter kit in Visiual Studio Code.
+7. **Install Node Packages**: `npm install`
+8. **Create a new project** based on the starter kit: `npm run clone <project name>`
