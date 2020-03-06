@@ -1,4 +1,11 @@
 {
-  "compilerOptions": {},
-  "exclude": ["node_modules"]
+  "compilerOptions": {
+    "checkJs": true,
+    "experimentalDecorators": true,
+    "lib": ["es2018", "dom"],
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "target": "es2015"
+  },
+  "exclude": ["$tf", ".chrome", ".git", ".nyc_output", ".tmp", "coverage", "dist", "node_modules"]
 }

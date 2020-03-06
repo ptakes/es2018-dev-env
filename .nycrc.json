@@ -2,6 +2,6 @@
   "exclude": ["*.js", "build/**/*.js", "src/**/*.test.js"],
   "require": ["@babel/register"],
   "reporter": ["lcov", "text"],
-  "sourceMap": false,
-  "instrument": false
+  "sourceMap": true,
+  "instrument": true
 }

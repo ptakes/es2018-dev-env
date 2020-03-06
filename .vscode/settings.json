@@ -1,40 +1,47 @@
 {
-  "coverage-gutters.coverageFileNames": ["coverage/lcov.info"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true,
+    "source.fixAll.style": true
+  },
   "editor.detectIndentation": false,
   "editor.formatOnSave": true,
   "editor.insertSpaces": true,
   "editor.mouseWheelZoom": true,
   "editor.tabSize": 2,
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
   "eslint.enable": true,
   "files.autoSave": "off",
   "files.exclude": {
+    ".chrome/": true,
+    ".git/": true,
     ".nyc_output/": true,
+    ".tmp/": true,
+    ".vs/": true,
     "node_modules/": true
   },
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "files.watcherExclude": {
-    "**/.nyc_output/**": true,
-    "**/.git/objects/**": true,
+    "**/$tf/**": true,
+    "**/.chrome/**": true,
     "**/.git/subtree-cache/**": true,
-    "**/coverage/**": true,
-    "**/dist/**": true,
+    "**/.tmp/*/**": true,
+    "**/.nyc_output/*/**": true,
+    "**/.vs/*/**": true,
+    "**/coverage/*/**": true,
+    "**/dist/*/**": true,
     "**/node_modules/*/**": true
   },
   "html.format.wrapLineLength": 180,
-  "mochaExplorer.env": { "NODE_ENV": "test" },
+  "javascript.implicitProjectConfig.checkJs": true,
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
   "mochaExplorer.files": "src/**/*.test.js",
-  "mochaExplorer.optsFile": "mocha.opts",
-  "mochaExplorer.mochaPath": "node_modules/mocha",
-  "prettier.eslintIntegration": true,
-  "prettier.printWidth": 180,
-  "prettier.singleQuote": true,
-  "prettier.stylelintIntegration": true,
-  "prettier.tabWidth": 2,
-  "prettier.useTabs": false,
-  "sassFormat.indent": 2,
-  "sassFormat.useSingleQuotes": true,
+  "mochaExplorer.require": "@babel/register",
   "sasslint.enable": true,
-  "tslint.enable": false,
-  "window.zoomLevel": 0
+  "window.zoomLevel": 0,
+  "vs-code-prettier-eslint.eslintFileName": ".eslintrc",
+  "vs-code-prettier-eslint.prettierFileName": ".prettierrc"
 }

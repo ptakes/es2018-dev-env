@@ -1,5 +1,9 @@
+$tf/
+.chrome/
+.git/
+.nyc_output/
+.tmp/
+.vs/
+coverage/
 dist/
 node_modules/
-
-.nyc_output/
-coverage/

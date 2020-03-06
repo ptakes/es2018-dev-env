@@ -3,6 +3,7 @@ import Storage from 'dom-storage';
 import chai from 'chai';
 import chaiDateTime from 'chai-datetime';
 import faker from 'faker';
+import * as mockttp from 'mockttp/dist/main';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
@@ -20,6 +21,7 @@ require.extensions['.jpeg'] = () => {};
 require.extensions['.csv'] = () => {};
 require.extensions['.tsv'] = () => {};
 require.extensions['.cson'] = () => {};
+require.extensions['.json'] = () => {};
 require.extensions['.json5'] = () => {};
 require.extensions['.xml'] = () => {};
 // ... fonts.
@@ -29,6 +31,7 @@ require.extensions['.woff'] = () => {};
 require.extensions['.woff2'] = () => {};
 
 // Setup browser environment.
+// @ts-ignore
 global.window = new JSDOM('<!doctype html><html><head></head><body></body></html>').window;
 global.document = global.window.document;
 global.localStorage = new Storage(null, { strict: true });
@@ -109,7 +112,7 @@ function mockStorage() {
 }
 
 function mockServer(port) {
-  httpServer = httpServer || require('mockttp').getLocal();
+  httpServer = httpServer || mockttp.getLocal();
   mochaHooks.mockServer = {
     afterEach: () => httpServer.stop(),
     beforeEach: () => httpServer.start(port)

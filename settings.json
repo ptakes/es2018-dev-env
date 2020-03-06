@@ -1,0 +1,11 @@
+{
+  "appTitle": "ECMAScript 2018 Dev Env",
+  "baseTagUrl": "/",
+  "baseUrl": "/",
+  "debugMode": false,
+  "logLevel": "warn",
+  "maxSizeDataUrl": 8192,
+  "serverHost": "localhost",
+  "serverPort": 8080,
+  "testMode": false
+}

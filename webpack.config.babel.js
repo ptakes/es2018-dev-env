@@ -1,15 +1,16 @@
-import clean from './build/webpack.clean';
-import common from './build/webpack.common';
+import { PROD_BUILD } from './build/buildConfig';
+import baseConfig from './build/webpack.base';
 import devServer from './build/webpack.devServer';
-import extractCss from './build/webpack.extractCss';
-import loadCss from './build/webpack.loadCss';
-import loadData from './build/webpack.loadData';
-import loadFonts from './build/webpack.loadFonts';
-import loadImages from './build/webpack.loadImages';
-import loadJavaScript from './build/webpack.loadJavaScript';
+import loadData from './build/webpack.data';
+import loadFonts from './build/webpack.fonts';
+import loadHtml from './build/webpack.html';
+import loadImages from './build/webpack.images';
+import loadJavaScript from './build/webpack.javascript';
+import loadPackages from './build/webpack.packages';
+import loadStyles from './build/webpack.styles';
 import merge from 'webpack-merge';
 import optimize from './build/webpack.optimize';
 
-export default (process.env.NODE_ENV === 'production'
-  ? merge([common(), clean(), loadJavaScript(), extractCss(), loadImages(), loadFonts(), loadData(), optimize()])
-  : merge([common(), loadJavaScript(), loadCss(), loadImages(), loadFonts(), loadData(), devServer()]));
+export default PROD_BUILD
+  ? merge(baseConfig(), loadHtml(), loadJavaScript(), loadStyles(true), loadImages(), loadFonts(), loadData(), loadPackages(), optimize())
+  : merge(baseConfig(), loadHtml(), loadJavaScript(), loadStyles(false), loadImages(), loadFonts(), loadData(), loadPackages(), devServer());
